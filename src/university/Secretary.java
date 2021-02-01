@@ -1,4 +1,4 @@
-package week3;
+package university;
 
 public class Secretary extends Employee{
     boolean employeeConfidential;

@@ -1,11 +1,13 @@
-package com.home;
+package teme;
 
 import ro.scoalainformala.image.ImageTransformation;
 
+import java.util.Collections;
 import java.util.Scanner;
 
 
 public class TransformImage {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

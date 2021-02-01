@@ -1,4 +1,4 @@
-package com.home;
+package teme;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
