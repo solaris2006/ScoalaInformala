@@ -67,8 +67,7 @@ public class Calculator {
 
     public static String stringInput() {
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine().toLowerCase();
-        return input;
+        return sc.nextLine().toLowerCase();
     }
 
     public static void add(double num1, double num2) {
