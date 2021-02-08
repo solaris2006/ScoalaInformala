@@ -5,4 +5,6 @@ public class Employee extends Person{
     String rank;
     int workingHours;
 
+
+
 }

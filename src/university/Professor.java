@@ -17,4 +17,19 @@ public class Professor extends Employee{
         return ("Hello " + title + " " + firstName + " , " + lastName);
     }
 
+    public String getRank(){
+        String rank = "";
+
+        if (doctor) {
+            rank = "doctor";
+        }else if(lecturer){
+            rank = "lecturer";
+        }else{
+            rank = "professor";
+        }
+
+        return rank;
+
+    }
+
 }
