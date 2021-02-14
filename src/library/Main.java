@@ -6,6 +6,6 @@ public class Main {
                 "Jack London");
         Book b2 = new Book(1258444, "Novel", "234DE", "Gone with thw wind", 234,
                 "Lea Theoni");
-        System.out.println(b1.equals(b2));
+        System.out.println(b1);
     }
 }

@@ -3,8 +3,11 @@ package library;
 public class ArtAlbum extends Book{
     private String paperQuality;
 
-    public ArtAlbum(int catalogId, String category, String DDCId, String name, int numberOfPages, String paperQuality){
-        super(catalogId, category, DDCId, name, numberOfPages);
+    public ArtAlbum(int catalogId, String category,
+                    String DDCId, String name, int numberOfPages,
+                    String author,
+                    String paperQuality){
+        super(catalogId, category, DDCId, name, numberOfPages, author);
         this.paperQuality = paperQuality;
     }
 
