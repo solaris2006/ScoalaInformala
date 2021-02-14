@@ -2,13 +2,15 @@ package library;
 
 public class Book extends Catalog{
     private String name;
+    private String author;
     private int numberOfPages;
 
 
 
-    public Book(int catalogId, String category, String DDCId, String name, int numberOfPages) {
+    public Book(int catalogId, String category, String DDCId, String name, int numberOfPages, String author) {
         super(catalogId, category, DDCId );
         this.name = name;
+        this.author = author;
         this.numberOfPages = numberOfPages;
     }
 
@@ -26,5 +28,18 @@ public class Book extends Catalog{
 
     public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    @Override
+    public String toString(){
+        return  "Name " + getName() +  " author " + getAuthor()  + " number of pages "  + getNumberOfPages();
     }
 }
