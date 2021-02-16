@@ -3,18 +3,18 @@ package library;
 import javax.xml.namespace.QName;
 
 public class Novel extends Book {
-    private String genere;
+    private String type;
 
-    public Novel(int catalogId, String category, String DDCId, String name, int numberOfPages, String author, String genere){
-        super(catalogId, category, DDCId, name, numberOfPages, author);
-        this.genere = genere;
+    public Novel( String author, String title , int numberOfPages, String type){
+        super(author, title,  numberOfPages);
+        this.type = type;
     }
 
-    public String getGenere() {
-        return genere;
+    public String getType() {
+        return this.type;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setType(String type) {
+        this.type = type;
     }
 }

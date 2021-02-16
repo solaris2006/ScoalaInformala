@@ -1,25 +1,15 @@
 package library;
 
-public class Book extends Catalog{
-    private String name;
+public class Book {
     private String author;
+    private String title;
     private int numberOfPages;
 
-
-
-    public Book(int catalogId, String category, String DDCId, String name, int numberOfPages, String author) {
-        super(catalogId, category, DDCId );
-        this.name = name;
+    public Book(String author, String title, int numberOfPages){
         this.author = author;
+        this.title = title;
         this.numberOfPages = numberOfPages;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getNumberOfPages() {
@@ -30,6 +20,32 @@ public class Book extends Catalog{
         this.numberOfPages = numberOfPages;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static void setNumberOfBooks(int numberOfBooks) {
+        Book.numberOfBooks = numberOfBooks;
+    }
+
+    private int quantity;
+    private static int numberOfBooks;
+
+
+
+
     public String getAuthor() {
         return author;
     }
@@ -38,8 +54,13 @@ public class Book extends Catalog{
         this.author = author;
     }
 
+
+
     @Override
     public String toString(){
-        return  "Name " + getName() +  " author " + getAuthor()  + " number of pages "  + getNumberOfPages();
+        return "author: " + getAuthor() + "\n" +  "title: " + getTitle() + "\n" + "number of pages: " +
+                getNumberOfPages() + "\n" + "-----------";
     }
+
+
 }
