@@ -5,7 +5,11 @@ import java.util.Scanner;
 
 public class Catalog {
     private String catalogId;
-    private static int numberOfCopies;
+    private  int numberOfCopies;
+
+
+
+    private static int totalBooks ;
     private static ArrayList<Book> books = new ArrayList<>();
 
 
@@ -15,8 +19,8 @@ public class Catalog {
 
     }
 
-    public void addBook(Book book, int numberOfCopies){
-        this.numberOfCopies += numberOfCopies;
+    public void addBook(Book book){
+        this.totalBooks += numberOfCopies;
         books.add(book);
     }
 
@@ -110,14 +114,13 @@ public class Catalog {
     }
 
 
-
-    public static int getNumberOfCopies() {
-        return numberOfCopies;
+    public static int getTotalBooks() {
+        return totalBooks;
     }
 
-    public static void setNumberOfCopies(int numberOfCopies) {
-        Catalog.numberOfCopies = numberOfCopies;
-    }
+
+
+
 
 //    @Override
 //    public String toString(){

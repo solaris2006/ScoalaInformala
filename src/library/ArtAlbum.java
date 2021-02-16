@@ -4,8 +4,8 @@ public class ArtAlbum extends Book{
     private String paperQuality;
 
 
-    public ArtAlbum(String author, String title ,int numberOfPages, String paperQuality){
-        super(author, title, numberOfPages);
+    public ArtAlbum(String author, String title ,int numberOfPages, int numberOfCopies, String paperQuality){
+        super(author, title, numberOfPages, numberOfCopies);
         this.paperQuality = paperQuality;
 
     }

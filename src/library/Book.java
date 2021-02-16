@@ -4,11 +4,14 @@ public class Book {
     private String author;
     private String title;
     private int numberOfPages;
+    private  int numberOfCopies;
 
-    public Book(String author, String title, int numberOfPages){
+
+    public Book(String author, String title, int numberOfPages, int numberOfCopies){
         this.author = author;
         this.title = title;
         this.numberOfPages = numberOfPages;
+        this.numberOfCopies = numberOfCopies;
 
     }
 

@@ -5,8 +5,8 @@ import javax.xml.namespace.QName;
 public class Novel extends Book {
     private String type;
 
-    public Novel( String author, String title , int numberOfPages, String type){
-        super(author, title,  numberOfPages);
+    public Novel( String author, String title , int numberOfPages, int numberOfCopies, String type){
+        super(author, title,  numberOfPages, numberOfCopies );
         this.type = type;
     }
 
