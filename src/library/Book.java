@@ -1,18 +1,27 @@
 package library;
 
+import java.util.Scanner;
+
 public class Book {
-    private String author;
-    private String title;
+
+
+    private String name;
     private int numberOfPages;
-    private  int numberOfCopies;
 
+    public Book(){};
 
-    public Book(String author, String title, int numberOfPages, int numberOfCopies){
-        this.author = author;
-        this.title = title;
+    public Book (String name, int numberOfPages){
+        this.name = name;
         this.numberOfPages = numberOfPages;
-        this.numberOfCopies = numberOfCopies;
+    }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getNumberOfPages() {
@@ -21,48 +30,6 @@ public class Book {
 
     public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static void setNumberOfBooks(int numberOfBooks) {
-        Book.numberOfBooks = numberOfBooks;
-    }
-
-    private int quantity;
-    private static int numberOfBooks;
-
-
-
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-
-
-    @Override
-    public String toString(){
-        return "author: " + getAuthor() + "\n" +  "title: " + getTitle() + "\n" + "number of pages: " +
-                getNumberOfPages() + "\n" + "-----------";
     }
 
 

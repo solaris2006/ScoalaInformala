@@ -1,133 +1,84 @@
 package library;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Catalog {
-    private String catalogId;
-    private  int numberOfCopies;
+    private String name;
+    private ArrayList<Book> catalog;
 
 
-
-    private static int totalBooks ;
-    private static ArrayList<Book> books = new ArrayList<>();
-
-
-    public Catalog(String catalogId){
-        this.catalogId = catalogId;
-
-
+    public Catalog (String name){
+        this.name = name;
+        this.catalog = new ArrayList<>();
     }
 
-    public void addBook(Book book){
-        this.totalBooks += numberOfCopies;
-        books.add(book);
-    }
 
-    public  String catalogID(){
-        System.out.println("Enter catalog ID");
+
+    public void addBook(){
+        System.out.println("Please enter type of book novel / artalbum");
         Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        String type = sc.nextLine();
+        if ( type.toLowerCase().equals("novel")){
+            System.out.println("Name of book");
+            String name = sc.nextLine();
+            System.out.println("Author");
+            String author = sc.nextLine();
+            System.out.println("Number of pages ");
+            int numberOfPages = Integer.valueOf(sc.nextLine());
+            Book novel = new Novel(name, numberOfPages, author);
+            catalog.add(novel);
+        }else if (type.toLowerCase().equals("artalbum")){
+            System.out.println("Name of art album");
+            String name = sc.nextLine();
+            System.out.println("Paper quality");
+            String paperQaulity = sc.nextLine();
+            System.out.println("Number of pages");
+            int numberOfPages = Integer.valueOf(sc.nextLine());
+            Book artAlbum = new ArtAlbum(name, numberOfPages, paperQaulity);
+            catalog.add(artAlbum);
+
+        }
     }
 
-    /* list all books in the catalog */
-    public void list(){
-        for (Book book : books){
-            System.out.println(book);
-        }
 
-
-    }
-
-
-    /* search by author / title */
-    public void search(){
-        System.out.println("Search by author / title");
-        Scanner sc = new Scanner(System.in);
-        String searchString  = sc.nextLine();
-        ArrayList<Book> books;
-
-        while (true){
-            if (searchString.toLowerCase().equals("author")){
-                System.out.println("Please enter the author name");
-                String author = sc.nextLine();
-                books = searchByAuthor(author);
-                break;
-            }else if (searchString.toLowerCase().equals("title")){
-                System.out.println("Please enter the title");
-                String title = sc.nextLine();
-                books = searchByTitle(title);
-                break;
-            }{
-                System.out.println("Please enter serach criteria (author / title)");
-                searchString = sc.nextLine();
-
-            }
-        }
-        if (books == null){
-            System.out.println("No books found");
-        }else {
-            for (Book book : books){
+    public void listBooks(){
+        if (this.catalog.size() == 0){
+            System.out.println("No books");
+        }else{
+            for (Book book : catalog){
                 System.out.println(book);
             }
         }
+
     }
 
-    private ArrayList<Book> searchByAuthor(String author){
-        ArrayList<Book> searchResults = new ArrayList<>();
 
-        for (Book book : books) {
-            if (author.toLowerCase().equals(book.getAuthor().toLowerCase())) {
-                searchResults.add(book);
-            }
+    public void searchByAuthor(){}
+
+    public void searchByTitle(){}
+
+    public void searchByPaperQuality(){}
+
+    public void update(Book book){}
+
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString(){
+        String toPrint = "";
+
+        if (this.catalog == null){
+            return  "No books";
         }
-        if (searchResults.isEmpty()){
-            return null;
-        }else{
-           return searchResults;
+        for (Book book : catalog){
+            toPrint += book.toString() + "\n" ;
         }
 
-
+        return toPrint;
     }
-
-    private ArrayList<Book> searchByTitle(String title){
-        ArrayList<Book> searchResults = new ArrayList<>();
-
-        for (Book book : books) {
-            if (title.toLowerCase().equals(book.getTitle().toLowerCase())) {
-                searchResults.add(book);
-            }
-        }
-        if (searchResults.isEmpty()){
-            return null;
-        }else{
-            return searchResults;
-        }
-    }
-
-    public String getCatalogId() {
-        return catalogId;
-    }
-
-    public void setCatalogId(String catalogId) {
-        this.catalogId = catalogId;
-    }
-
-
-    public static int getTotalBooks() {
-        return totalBooks;
-    }
-
-
-
-
-
-//    @Override
-//    public String toString(){
-//
-//        return "Catalog ID " + getCatalogId()  + "\n" + " type " + getType() + " number of books " + "\n"
-//                + getNumberOfCopies() + "\n" + "----------";
-//
-//    }
-
 }

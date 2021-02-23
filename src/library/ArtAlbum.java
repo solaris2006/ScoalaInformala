@@ -3,9 +3,8 @@ package library;
 public class ArtAlbum extends Book{
     private String paperQuality;
 
-
-    public ArtAlbum(String author, String title ,int numberOfPages, int numberOfCopies, String paperQuality){
-        super(author, title, numberOfPages, numberOfCopies);
+    public ArtAlbum(String name , int numberOfPages, String paperQuality){
+        super(name, numberOfPages);
         this.paperQuality = paperQuality;
 
     }
@@ -14,7 +13,8 @@ public class ArtAlbum extends Book{
         return paperQuality;
     }
 
-    public void setPaperQuality(String paperQuality) {
-        this.paperQuality = paperQuality;
+    @Override
+    public String toString(){
+        return "Name " + getName() +  " - " + " paper quality " + getPaperQuality() + " - " + getNumberOfPages() + " pages";
     }
 }

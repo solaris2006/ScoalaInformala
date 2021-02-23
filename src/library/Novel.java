@@ -1,20 +1,21 @@
 package library;
 
-import javax.xml.namespace.QName;
+public class Novel extends Book{
 
-public class Novel extends Book {
-    private String type;
+    private String author;
 
-    public Novel( String author, String title , int numberOfPages, int numberOfCopies, String type){
-        super(author, title,  numberOfPages, numberOfCopies );
-        this.type = type;
+    public Novel(String name, int numberOfPages, String author){
+        super(name, numberOfPages);
+        this.author = author;
     }
 
-    public String getType() {
-        return this.type;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    @Override
+    public String toString(){
+        return "Name " +  getName() + " - "+ " author "+  getAuthor() + " - " + getNumberOfPages() + " pages ";
     }
+
 }
