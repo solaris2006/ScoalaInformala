@@ -7,6 +7,10 @@ public class AccountHolder<E> implements Printable{
     private String name;
     List<Account> accounts = new ArrayList<>();
 
+    public AccountHolder(String name){
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -23,10 +27,21 @@ public class AccountHolder<E> implements Printable{
         accounts.add(account);
     }
 
+    public void deposit (double amount){
+        // A user choice should be implemented
+        for (Account account : accounts){
+            if (account instanceof SavingsAccount){
+                account.deposit(amount);
+            }
+        }
+    }
+
     public void print(){
-        System.out.println("Name" + getName());
+        System.out.println("Name " + getName());
+        System.out.println("-------------------");
         for (Account account : accounts){
             account.print();
+            System.out.println("------------------");
         }
     }
     public void setAccounts(List<Account> accounts) {
