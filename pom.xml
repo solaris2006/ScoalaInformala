@@ -1,0 +1,4 @@
+<parent>
+    <groupID>org.springframework.boot</groupID>
+    <artifactId>spring-boot-starter-parent</artifactId>
+</parent>

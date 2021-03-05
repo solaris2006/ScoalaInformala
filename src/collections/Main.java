@@ -7,6 +7,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+
         Student cristian = new Student();
         Student alex = new Student();
         Student simona = new Student();
@@ -44,6 +45,7 @@ public class Main {
         HashMap listOfHobbies =  new HashMap<>();
         listOfHobbies.put(cristian, sportHobbies);
         listOfHobbies.put(alex, softHobbies);
+
 
 
 
