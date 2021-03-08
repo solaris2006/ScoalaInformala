@@ -2,34 +2,42 @@ package mathexpression;
 import java.util.Stack;
 public class StringEval {
 
-
+// Credits GeeksforGeeks implementation https://www.geeksforgeeks.org/expression-evaluation/
+// Just for learning pourposes
 
     public static int evaluate(String expression){
         char[] tokens = expression.toCharArray();
         System.out.println(tokens);;
-
+        // two stacks:  for operators and values
         Stack<Integer> values = new Stack<>();
         Stack<Character> ops = new Stack<>();
 
         for (int i=0 ; i < tokens.length ; i++ ){
+            // skip whitespaces
             if (tokens[i] == ' '){
                 continue;
             }
 
+            // if char values are greater  or equal than 0 char value and smaller or equal than 9 char value
             if (tokens[i] >= '0' && tokens[i] <= '9'){
                 StringBuffer sbuf = new StringBuffer();
+                //a number may have more than one char
                 while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9'){
                     sbuf.append(tokens[i++]);
                     values.push(Integer.parseInt(sbuf.toString()));
                 }
+                //reset i  offset to correct value
                 i--;
             }else if (tokens[i] == '('){
                 ops.push(tokens[i]);
             }else if (tokens[i] == ')'){
+                // closing parenthesis found : all operations inside must be processed
                 while (ops.peek() != '('){
                     values.push(applyOp(ops.pop(), values.pop(), values.pop()));
-                    ops.pop();
+
                 }
+                // flush used op
+                ops.pop();
             }else if (tokens[i] == '+' ||
                       tokens[i] == '-' ||
                       tokens[i] == '*' ||
@@ -56,6 +64,7 @@ public class StringEval {
         return values.pop();
     }
 
+    // verify precedence
     public  static boolean hasPrecedence(char op1, char op2){
         {
             if (op2 == '(' || op2 == ')'){
