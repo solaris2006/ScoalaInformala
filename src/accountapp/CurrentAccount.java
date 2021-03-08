@@ -1,6 +1,6 @@
 package accountapp;
 
-public class CurrentAccount extends Account implements Printable, Deposit{
+public class CurrentAccount extends Account implements Print, Deposit{
     private boolean overDraftEligible;
 
     public CurrentAccount(String description, String iban, double balance) {
@@ -26,7 +26,4 @@ public class CurrentAccount extends Account implements Printable, Deposit{
         }
     }
 
-    public void setOverDraftEligible(boolean overDraftEligible) {
-        this.overDraftEligible = overDraftEligible;
-    }
 }

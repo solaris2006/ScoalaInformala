@@ -3,7 +3,7 @@ package accountapp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountHolder implements Printable{
+public class AccountHolder implements Print {
     private String name;
     List<Account> accounts = new ArrayList<>();
 

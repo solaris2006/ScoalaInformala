@@ -2,7 +2,6 @@ package teme;
 
 import ro.scoalainformala.image.ImageTransformation;
 
-import java.util.Collections;
 import java.util.Scanner;
 
 

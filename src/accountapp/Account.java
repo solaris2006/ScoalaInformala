@@ -1,5 +1,7 @@
 package accountapp;
 
+import java.awt.print.Printable;
+
 public abstract class Account implements Printable, Deposit{
     private String description;
     private String iban;
