@@ -1,6 +1,6 @@
 package accountapp;
 
-public class CurrentAccount extends Account implements Print, Deposit{
+public class CurrentAccount extends Account implements Printable, Deposit{
     private boolean overDraftEligible;
 
     public CurrentAccount(String description, String iban, double balance) {
@@ -25,5 +25,6 @@ public class CurrentAccount extends Account implements Print, Deposit{
             System.out.println("Is not allowed for overdraft");
         }
     }
+
 
 }

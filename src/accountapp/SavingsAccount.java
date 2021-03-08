@@ -1,6 +1,6 @@
 package accountapp;
 
-public class SavingsAccount extends Account implements Print, Deposit{
+public class SavingsAccount extends Account implements Printable, Deposit{
     private double interestRate;
 
     public SavingsAccount(String description, String iban, double balance, double interestRate) {

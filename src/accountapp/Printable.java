@@ -1,5 +1,5 @@
 package accountapp;
 
-public interface Print {
+public interface Printable {
     void print();
 }

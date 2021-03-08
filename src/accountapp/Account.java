@@ -1,6 +1,5 @@
 package accountapp;
 
-import java.awt.print.Printable;
 
 public abstract class Account implements Printable, Deposit{
     private String description;
@@ -41,4 +40,5 @@ public abstract class Account implements Printable, Deposit{
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
 }
