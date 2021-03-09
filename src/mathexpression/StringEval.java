@@ -20,12 +20,13 @@ public class StringEval {
 
             // if char values are greater  or equal than 0 char value and smaller or equal than 9 char value
             if (tokens[i] >= '0' && tokens[i] <= '9'){
-                StringBuffer sbuf = new StringBuffer();
+                StringBuilder sbuild = new StringBuilder();
                 //a number may have more than one char
                 while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9'){
-                    sbuf.append(tokens[i++]);
-                    values.push(Integer.parseInt(sbuf.toString()));
+                    sbuild.append(tokens[i++]);
                 }
+                values.push(Integer.parseInt(sbuild.toString()));
+
                 //reset i  offset to correct value
                 i--;
             }else if (tokens[i] == '('){
@@ -66,17 +67,15 @@ public class StringEval {
 
     // verify precedence
     public  static boolean hasPrecedence(char op1, char op2){
-        {
-            if (op2 == '(' || op2 == ')'){
-                return false;
-            }
-            if ((op1 == '*' || op1 == '/') &&
-                    (op2 == '+' || op2 == '-')){
-                return false;
-            }else {
-                return true;
+        if (op2 == '(' || op2 == ')'){
+            return false;
         }
-        }
+        if ((op1 == '*' || op1 == '/') &&
+                (op2 == '+' || op2 == '-')){
+            return false;
+        }else {
+            return true;
+    }
     }
 
     public static int applyOp(char op, int b, int a){
