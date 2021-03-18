@@ -2,12 +2,11 @@ package mathexpression;
 import java.util.Stack;
 public class StringEval {
 
-// Credits GeeksforGeeks implementation https://www.geeksforgeeks.org/expression-evaluation/
-// Just for learning pourposes
+
 
     public static int evaluate(String expression){
         char[] tokens = expression.toCharArray();
-        System.out.println(tokens);;
+        System.out.println(tokens);
         // two stacks:  for operators and values
         Stack<Integer> values = new Stack<>();
         Stack<Character> ops = new Stack<>();
@@ -70,12 +69,8 @@ public class StringEval {
         if (op2 == '(' || op2 == ')'){
             return false;
         }
-        if ((op1 == '*' || op1 == '/') &&
-                (op2 == '+' || op2 == '-')){
-            return false;
-        }else {
-            return true;
-    }
+        return (op1 != '*' && op1 != '/') ||
+                (op2 != '+' && op2 != '-');
     }
 
     public static int applyOp(char op, int b, int a){
