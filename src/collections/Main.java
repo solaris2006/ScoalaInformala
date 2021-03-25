@@ -9,9 +9,9 @@ public class Main {
     public static void main(String[] args) {
 
         //create address
-        Address buc = new Address("bucharest");
-        Address tim = new Address("timisroara");
-        Address sib = new Address("sib");
+        Address buc = new Address("Bucharest");
+        Address tim = new Address("Timisroara");
+        Address sib = new Address("Sibiu");
 
         //create students
         Student cristian = new Student("Cristian");
@@ -53,19 +53,24 @@ public class Main {
 
         studentHobbies.put(alex, alexHobbies);
 
-       for (Map.Entry<Student, List<Hobby>> entry : studentHobbies.entrySet()){
-           System.out.println(entry.getKey().getName());
-           List<Hobby> hobbies = entry.getValue();
-           for (Hobby hobby : hobbies){
-               System.out.println(hobby.getHobby());
-           }
+        listHobbies(cristian, studentHobbies);
 
 
-       }
-
-       
     }
 
+    private static void listHobbies(Student student, Map<Student, List<Hobby>> studentHobbies){
+        for (Map.Entry<Student, List<Hobby>> entry : studentHobbies.entrySet()){
+            if (entry.getKey().equals(student)){
+                List<Hobby> hobbies = entry.getValue();
+                for (Hobby hobby : hobbies){
+                    System.out.println("Hobby " + hobby.getHobby() + " can be practiced in: ");
+                    hobby.getAddresses();
+                    System.out.println();
+                }
+            }
+
+        }
+    }
 
 
 }

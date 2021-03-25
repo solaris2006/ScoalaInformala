@@ -32,6 +32,10 @@ public class Hobby {
 
     public List<Address> getAddresses() {
 
+        for (Address adrres :  addresses){
+            System.out.print(adrres.getCity() + " ");
+        }
+
         return addresses;
     }
 
