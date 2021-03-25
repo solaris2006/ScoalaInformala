@@ -6,4 +6,8 @@ public class Address {
     public Address(String city) {
         this.city = city;
     }
+
+    public String getCity() {
+        return city;
+    }
 }

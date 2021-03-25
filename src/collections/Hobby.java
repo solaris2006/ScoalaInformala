@@ -1,17 +1,41 @@
 package collections;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hobby {
     private String hobby;
     private int frequency;
-    List<Address> addresses ;
+    List<Address> addresses = new ArrayList<>();
 
-    public Hobby(String hobby, int frequency, List<Address> addresses) {
+    public Hobby(String hobby, int frequency) {
         this.hobby = hobby;
         this.frequency = frequency;
-        this.addresses = addresses;
+
     }
 
+    public String getHobby() {
+        return hobby;
+    }
 
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public int getFrequency() {
+        return frequency;
+    }
+
+    public void setFrequency(int frequency) {
+        this.frequency = frequency;
+    }
+
+    public List<Address> getAddresses() {
+
+        return addresses;
+    }
+
+    public void addAddress(Address address) {
+        this.addresses.add(address);
+    }
 }

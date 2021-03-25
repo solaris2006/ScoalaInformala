@@ -1,55 +1,71 @@
 package collections;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 public class Main {
     public static void main(String[] args) {
 
+        //create address
+        Address buc = new Address("bucharest");
+        Address tim = new Address("timisroara");
+        Address sib = new Address("sib");
 
-        Student cristian = new Student();
-        Student alex = new Student();
-        Student simona = new Student();
+        //create students
+        Student cristian = new Student("Cristian");
+        Student cristina = new Student("Cristina");
+        Student alex = new Student("Alex");
 
-        Address bucharest = new Address("bucharest");
-        Address timisoara = new Address("timisoara");
-        Address iasi = new Address("iasi");
-        Address cluj = new Address("cluj");
-        Address sibiu = new Address("sibiu");
-        List<Address> addresses1  = new ArrayList<>() ;
-        addresses1.add(bucharest);
-        addresses1.add(timisoara);
-        addresses1.add(iasi);
-        List<Address> addresses2  = new ArrayList<>() ;
-        addresses2.add(iasi);
-        addresses2.add(sibiu);
-        addresses2.add(cluj);
+        //create hobbies
+        Hobby swimming = new Hobby("swimming", 4);
+        swimming.addAddress(buc);
+        swimming.addAddress(sib);
 
+        Hobby cycling =  new Hobby("cycling", 2);
+        cycling.addAddress(buc);
+        cycling.addAddress(tim);
 
+        Hobby tennis = new Hobby("tennins", 6);
+        tennis.addAddress(buc);
+        tennis.addAddress(sib);
 
-
-        Hobby cycling = new Hobby("cycling", 3, addresses1);
-        Hobby hiking = new Hobby("hiking", 2, addresses2 );
-        Hobby readingBooks = new Hobby("reading books", 10, addresses1);
-        Hobby playChess = new Hobby("play chess", 5, addresses2);
-
-        List<Hobby> sportHobbies = new ArrayList<>();
-        sportHobbies.add(hiking);
-        sportHobbies.add(cycling);
-
-        List<Hobby> softHobbies = new ArrayList<>();
-        softHobbies.add(readingBooks);
-        softHobbies.add(playChess);
-
-        HashMap listOfHobbies =  new HashMap<>();
-        listOfHobbies.put(cristian, sportHobbies);
-        listOfHobbies.put(alex, softHobbies);
+        List<Hobby> cristiansHobbies  = new ArrayList<>();
+        List<Hobby> cristinasHobbies  = new ArrayList<>();
+        List<Hobby> alexHobbies  = new ArrayList<>();
 
 
+        Map<Student, List<Hobby>> studentHobbies = new  HashMap<>();
+
+        cristiansHobbies.add(swimming);
+        cristiansHobbies.add(tennis);
+
+        studentHobbies.put(cristian, cristiansHobbies);
+
+        cristinasHobbies.add(swimming);
+        cristinasHobbies.add(cycling);
+
+        studentHobbies.put(cristina, cristinasHobbies);
+
+        alexHobbies.add(tennis);
+        alexHobbies.add(cycling);
+
+        studentHobbies.put(alex, alexHobbies);
+
+       for (Map.Entry<Student, List<Hobby>> entry : studentHobbies.entrySet()){
+           System.out.println(entry.getKey().getName());
+           List<Hobby> hobbies = entry.getValue();
+           for (Hobby hobby : hobbies){
+               System.out.println(hobby.getHobby());
+           }
 
 
+       }
 
-
+       
     }
+
+
+
 }
