@@ -2,6 +2,7 @@ package collections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Hobby {
     private String hobby;
@@ -41,5 +42,18 @@ public class Hobby {
 
     public void addAddress(Address address) {
         this.addresses.add(address);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hobby hobby1 = (Hobby) o;
+        return Objects.equals(hobby, hobby1.hobby);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hobby);
     }
 }
