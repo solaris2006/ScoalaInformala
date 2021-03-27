@@ -4,14 +4,22 @@ public class StringEval {
 
 
 
-    public static int evaluate(String expression){
+    public static int evaluate(String expression) throws InvalidLengthError {
+
         char[] tokens = expression.toCharArray();
-        System.out.println(tokens);
+
         // two stacks:  for operators and values
         Stack<Integer> values = new Stack<>();
         Stack<Character> ops = new Stack<>();
 
         for (int i=0 ; i < tokens.length ; i++ ){
+            if (tokens[tokens.length - 1] == '+' ||
+                    tokens[tokens.length -1] == '-' ||
+                    tokens[tokens.length -1] == '*' ||
+                    tokens[tokens.length - 1] == '/')   {
+                throw new InvalidLengthError("Invalid length");
+
+            }
             // skip whitespaces
             if (tokens[i] == ' '){
                 continue;
